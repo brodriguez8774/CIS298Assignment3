@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--xml for a fragment of beverage-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/beverage_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/beverage_id_label" />
+
+    <EditText
+        android:id="@+id/beverage_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/beverage_name_hint" />
+
+    <EditText
+        android:id="@+id/beverage_pack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/beverage_pack_hint" />
+
+    <EditText
+        android:id="@+id/beverage_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/beverage_price_hint"
+        android:inputType="numberDecimal" />
+
+    <CheckBox
+        android:id="@+id/beverage_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/beverage_active_label" />
+
+</LinearLayout>
