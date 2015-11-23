@@ -2,7 +2,7 @@
 
 ## Author
 
-
+Brandon Rodriguez
 
 ## Description
 
@@ -51,4 +51,5 @@ Through File System:   app/src/main/res/raw/
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-
+When you select a beverage item and then try to swipe to another, for some reason it attempts to read the packString in for the priceDouble.
+However it doesn't actually crash until you attempt to swipe in the opposite direction that you just swiped. I assume this is also why, when you swipe, it doesn't actually load in the next item?

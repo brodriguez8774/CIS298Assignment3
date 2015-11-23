@@ -6,7 +6,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 /**
  * Singleton class which holds list of beverages.
@@ -64,7 +63,7 @@ public class BeverageList {
     //region Methods
 
     // Find beverage with Id.
-    public Beverage getBeverage(UUID id) {
+    public Beverage getBeverage(String id) {
         for (Beverage beverage : mBeverages) {
             if (beverage.getID().equals(id)) {
                 return beverage;
@@ -89,7 +88,6 @@ public class BeverageList {
                 String line = scanner.nextLine();
                 // Separate string by commas.
                 String parts[] = line.split(",");
-                Log.d(line, line);
 
                 // Assign each split part to a meaningful variable.
                 String idString = parts[0].toString().trim();
@@ -98,21 +96,18 @@ public class BeverageList {
                 String priceString = parts[3].toString().trim();
                 String activeString = parts[4].toString().trim();
 
-                // Parse the id into an actual UUID.
-                UUID uuid = UUID.fromString(idString);
-
                 // Parse the price into double.
                 Double priceDouble = Double.parseDouble(priceString);
 
                 // Parse active into bool.
                 boolean isActive;
-                if (activeString.equals("T")) {
+                if (activeString.toLowerCase().equals("true")) {
                     isActive = true;
                 } else {
                     isActive = false;
                 }
 
-                mBeverages.add(new Beverage(uuid, nameString, packString, priceDouble, isActive));
+                mBeverages.add(new Beverage(idString, nameString, packString, priceDouble, isActive));
             }
         } catch (Exception error) {
             // If error, log to console.

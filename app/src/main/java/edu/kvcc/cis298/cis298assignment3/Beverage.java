@@ -10,7 +10,7 @@ public class Beverage {
 
     //region Variables
 
-    private UUID mID;
+    private String mID;
     private String mName;
     private String mPack;
     private double mPrice;      // Needs changed to Decimal.
@@ -21,7 +21,7 @@ public class Beverage {
 
 
     //region Constructor
-    public Beverage(UUID id, String name, String pack, Double price, Boolean active) {
+    public Beverage(String id, String name, String pack, Double price, Boolean active) {
         mID = id;
         mName = name;
         mPack = pack;
@@ -35,11 +35,11 @@ public class Beverage {
 
     //region Properties
 
-    public UUID getID() {
+    public String getID() {
         return mID;
     }
 
-    public void setID(UUID ID) {
+    public void setID(String ID) {
         mID = ID;
     }
 

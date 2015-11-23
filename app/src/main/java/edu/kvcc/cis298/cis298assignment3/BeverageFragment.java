@@ -13,8 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.UUID;
-
 /**
  * Fragment class to display each beverage.
  * Created by Waffy on 11/22/2015.
@@ -38,9 +36,9 @@ public class BeverageFragment extends Fragment{
 
     private static final String ARG_BEVERAGE_ID = "beverage_id";
 
-    public static BeverageFragment newInstance(UUID beverageId) {
+    public static BeverageFragment newInstance(String beverageId) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_BEVERAGE_ID, beverageId);
+        args.putString(ARG_BEVERAGE_ID, beverageId);
 
         BeverageFragment fragment = new BeverageFragment();
         fragment.setArguments(args);
@@ -53,6 +51,15 @@ public class BeverageFragment extends Fragment{
 
     //region Override Methods
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        String beverageId = (String) getActivity().getIntent().getStringExtra(BeverageActivity.EXTRA_BEVERAGE_ID);
+        mBeverage = BeverageList.get(getActivity()).getBeverage(beverageId);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,7 +67,7 @@ public class BeverageFragment extends Fragment{
 
         // Set all the beverage variables.
         mIdField = (TextView)v.findViewById(R.id.beverage_id);
-        mIdField.setText(mBeverage.getID().toString());
+        mIdField.setText(mBeverage.getID());
 
 
         mNameField = (EditText)v.findViewById(R.id.beverage_name);

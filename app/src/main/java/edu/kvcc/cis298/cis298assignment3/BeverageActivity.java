@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Activity class for each individual beverage.
@@ -29,9 +27,9 @@ public class BeverageActivity extends FragmentActivity {
 
     //region Intent to summon class.
 
-    private static final String EXTRA_BEVERAGE_ID = "edu.kvcc.cis298.cis298assignment3.beverage_id";
+    public static final String EXTRA_BEVERAGE_ID = "edu.kvcc.cis298.cis298assignment3.beverage_id";
 
-    public static Intent newIntent(Context packageContext, UUID beverageId) {
+    public static Intent newIntent(Context packageContext, String beverageId) {
 
         Intent intent = new Intent(packageContext, BeverageActivity.class);
 
@@ -51,7 +49,7 @@ public class BeverageActivity extends FragmentActivity {
         // Sets content to use beverage pager.
         setContentView(R.layout.activity_beverage_view_pager);
 
-        UUID beverageId = (UUID) getIntent().getSerializableExtra(EXTRA_BEVERAGE_ID);
+        String beverageId = (String) getIntent().getStringExtra(EXTRA_BEVERAGE_ID);
 
         mViewPager = (ViewPager) findViewById(R.id.activity_beverage_view_pager);
 
