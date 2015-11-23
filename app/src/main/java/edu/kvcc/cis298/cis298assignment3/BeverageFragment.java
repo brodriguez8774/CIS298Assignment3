@@ -112,7 +112,7 @@ public class BeverageFragment extends Fragment{
 
         mPriceField = (EditText)v.findViewById(R.id.beverage_price);
         mPriceField.setText(Double.toString(mBeverage.getPrice()));
-        mPackField.addTextChangedListener(new TextWatcher() {
+        mPriceField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Intentionally left blank.
